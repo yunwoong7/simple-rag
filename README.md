@@ -1,4 +1,15 @@
-# Simple RAG Chatbot
+<h2 align="center">
+Simple RAG Chatbot
+</h2>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/python-v3.9.19-blue.svg"/>
+  <img src="https://img.shields.io/badge/langchain-v0.2.12-blue.svg"/>
+  <img src="https://img.shields.io/badge/openai-v1.40.1-blue.svg"/>
+  <img src="https://img.shields.io/badge/chromadb-v0.5.5-blue.svg"/>
+  <img src="https://img.shields.io/badge/gradio-v4.41.0-blue.svg"/>
+</div>
+
 이 프로젝트는 Retrieval-Augmented Generation (RAG) 기반의 챗봇을 구현합니다. Gradio를 사용하여 사용자 인터페이스를 제공하며, 다양한 문서 형식(PDF, TXT, Excel, Markdown)을 처리할 수 있습니다.
 
 ## 주요 기능
@@ -61,11 +72,6 @@ simple_rag/
    pip install -r requirements.txt
    ```
 
-4. `libmagic` 설치 (운영 체제에 따라 다름):
-   - macOS: `brew install libmagic`
-   - Ubuntu/Debian: `sudo apt-get install libmagic1`
-   - CentOS/RHEL: `sudo yum install file-devel`
-
 5. 환경 변수 설정:
    - `OPENAI_API_KEY`와 `GROQ_API_KEY`를 설정합니다.
 
@@ -88,3 +94,35 @@ simple_rag/
 ## 주의사항
 - 대용량 파일 처리 시 시간이 걸릴 수 있습니다.
 - API 키는 안전하게 관리해야 합니다.
+
+---
+
+## 데모
+
+#### **1. RAG 없이 LLM만 사용한 경우**
+
+LLM은 다음과 같은 일반적인 응답을 제공했습니다. 응답을 살펴보면, 문구의 언어학적 설명에 그쳤으며, 차량 매뉴얼의 맥락을 전혀 반영하지 못했습니다.
+
+<div align="center">
+<img src="https://blog.kakaocdn.net/dn/I8MmP/btsI5wOvWHl/IyzdQbtDKjXVlb9TBbW9xK/img.png" width="70%">
+</div>
+
+#### **2. RAG를 사용한 경우**
+
+RAG 시스템은 다음과 같은 구체적이고 정확한 응답을 제공했습니다. 이 응답은 PDF의 다음 내용을 정확히 참조했습니다.
+
+<div align="center">
+<img src="https://blog.kakaocdn.net/dn/xajAt/btsI3SFxt7o/QsyhJL48WJKq6GfKGoKjNk/img.gif" width="70%">
+</div>
+
+특히 흥미로운 점은 "잠시 휴식을 취하십시오"라는 문구가 실제로는 텍스트가 아니라 차량 디스플레이에 노출되는 이미지라는 것입니다.
+
+<div align="center">
+<img src="https://blog.kakaocdn.net/dn/bdCEzW/btsI5aFb7P8/mhrZtIBYCAMXHtsZMV3cEK/img.png" width="70%">
+</div>
+
+RAG 시스템이 특정 도메인의 정보를 처리하는 데 있어 LLM의 성능을 크게 향상할 수 있음을 보여줍니다. 특히 기술 문서, 매뉴얼 등 특정 맥락이 중요한 정보를 다룰 때 RAG의 활용이 매우 효과적일 수 있습니다.
+
+---
+
+간단한 RAG 프로그램을 개발해 보았습니다. 이 프로그램은 사용자의 질문에 대해 관련 문서를 검색하고, 이를 바탕으로 LLM이 답변을 생성합니다. 실제 운영 환경에서는 보안, 확장성, 성능 최적화 등 추가적인 고려사항이 필요할 수 있습니다. RAG 기술은 AI 시스템의 정확성과 신뢰성을 크게 향상하는 혁신적인 접근 방식으로, 앞으로 더욱 발전할 것으로 기대됩니다.

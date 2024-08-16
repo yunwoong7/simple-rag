@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple-rag"
+version = "0.1.0"
+description = "A Simple RAG-based Chatbot with support for multiple document formats"
+readme = "README.md"
+authors = [{ name = "yunwoong", email = "yunwoong7@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["rag", "chatbot", "nlp", "gradio"]
+dependencies = [
+    "gradio==4.41.0",
+    "langchain==0.2.12",
+    "langchain-community==0.2.11",
+    "langchain-core==0.2.29",
+    "langchain-groq==0.1.9",
+    "langchain-openai==0.1.20",
+    "langchain-text-splitters==0.2.2",
+    "langchain-unstructured==0.1.1",
+    "openai==1.40.1",
+    "chromadb==0.5.5",
+    "pypdf==4.3.1",
+    "python-magic==0.4.27",
+    "unstructured==0.15.1",
+    "pyyaml==6.0.1",
+    "python-dotenv==1.0.1",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "pytest",
+    "jupyter",
+    "notebook",
+    "ipykernel",
+    "matplotlib",
+    "pandas",
+]
+
+[project.urls]
+Homepage = "https://github.com/yunwoong7/simple-rag"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+markers = [
+    "unit: marks tests as unit tests",
+    "integration: marks tests as integration tests",
+]
